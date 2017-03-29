@@ -5,6 +5,8 @@
  */
 package com.sg.superherosightings.dao;
 
+import com.sg.superherosightings.model.Address;
+import com.sg.superherosightings.model.Location;
 import com.sg.superherosightings.model.Member;
 import com.sg.superherosightings.model.Organization;
 import com.sg.superherosightings.model.Superbeing;
@@ -29,6 +31,8 @@ public class MemberDaoTest {
     MemberDao dao;
     SuperbeingDao superbeingDao;
     OrganizationDao organizationDao;
+    LocationDao locationDao;
+    AddressDao addressDao;
 
     public MemberDaoTest() {
         this.dao = dao;
@@ -48,6 +52,8 @@ public class MemberDaoTest {
         dao = ctx.getBean("memberDao", MemberDao.class);
         superbeingDao = ctx.getBean("superbeingDao", SuperbeingDao.class);
         organizationDao = ctx.getBean("organizationDao", OrganizationDao.class);
+        addressDao = ctx.getBean("addressDao", AddressDao.class);
+        locationDao = ctx.getBean("locationDao", LocationDao.class);
 
     }
 
@@ -68,10 +74,31 @@ public class MemberDaoTest {
         superbeingDao.addSuperbeing(sb);
         sb.setSuperbeingID(sb.getSuperbeingID());
 
+        Address a = new Address();
+        a.setCity("eeeeeeeee");
+        a.setState("OH");
+        a.setZip("44011");
+        a.setCountry("USA");
+        a.setGalaxy("Hella");
+        a.setMultiverse("hours");
+        a.setPlanet("plut0pia");
+        a.setLatitude(1.0000009);
+        a.setLongitude(1.00007);
+        a.setStreet("aaerrrraa");
+        addressDao.addAddress(a);
+        a.setAddressID(a.getAddressID());
+        //
+        Location l = new Location();
+        l.setAddressID(a.getAddressID());
+        l.setLocationName("E!");
+        l.setLocationDescription("e.");
+        locationDao.addLocation(l);
+        l.setLocationID(l.getLocationID());
+        //
         Organization o = new Organization();
         o.setOrganizationName("Tim League");
         o.setOrganizationDescription("bunch of tims");
-        o.setLocationID(1);
+        o.setLocationID(l.getLocationID());
         organizationDao.addOrganization(o);
         o.setOrganizationID(o.getOrganizationID());
 
@@ -103,10 +130,31 @@ public class MemberDaoTest {
         superbeingDao.addSuperbeing(sb);
         sb.setSuperbeingID(sb.getSuperbeingID());
 
+        Address a = new Address();
+        a.setCity("eeeeeeeee");
+        a.setState("OH");
+        a.setZip("44011");
+        a.setCountry("USA");
+        a.setGalaxy("Hella");
+        a.setMultiverse("hours");
+        a.setPlanet("plut0pia");
+        a.setLatitude(1.0000009);
+        a.setLongitude(1.00007);
+        a.setStreet("aaerrrraa");
+        addressDao.addAddress(a);
+        a.setAddressID(a.getAddressID());
+        //
+        Location l = new Location();
+        l.setAddressID(a.getAddressID());
+        l.setLocationName("Eeeeeeeeee!");
+        l.setLocationDescription("e.");
+        locationDao.addLocation(l);
+        l.setLocationID(l.getLocationID());
+//
         Organization o = new Organization();
         o.setOrganizationName("Tim League");
         o.setOrganizationDescription("bunch of tims");
-        o.setLocationID(1);
+        o.setLocationID(l.getLocationID());
         organizationDao.addOrganization(o);
         o.setOrganizationID(o.getOrganizationID());
 
@@ -143,10 +191,29 @@ public class MemberDaoTest {
         superbeingDao.addSuperbeing(sb);
         sb.setSuperbeingID(sb.getSuperbeingID());
 
+        Address a = new Address();
+        a.setCity("eeeeeeeee");
+        a.setState("OH");
+        a.setZip("44011");
+        a.setCountry("USA");
+        a.setGalaxy("Hella");
+        a.setMultiverse("hours");
+        a.setPlanet("plut0pia");
+        a.setLatitude(1.0000009);
+        a.setLongitude(1.00007);
+        a.setStreet("aaerrrraa");
+        addressDao.addAddress(a);
+        Location l = new Location();
+        l.setAddressID(a.getAddressID());
+        l.setLocationName("Eeeeeeeeee!");
+        l.setLocationDescription("e.");
+        locationDao.addLocation(l);
+        l.setLocationID(l.getLocationID());
+        //
         Organization o = new Organization();
         o.setOrganizationName("Tim League");
         o.setOrganizationDescription("bunch of tims");
-        o.setLocationID(1);
+        o.setLocationID(l.getLocationID());
         organizationDao.addOrganization(o);
         o.setOrganizationID(o.getOrganizationID());
 

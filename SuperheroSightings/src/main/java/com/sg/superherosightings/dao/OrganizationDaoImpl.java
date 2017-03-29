@@ -51,7 +51,6 @@ public class OrganizationDaoImpl implements OrganizationDao {
 
     private static final String SQL_DELETE_ORGANIZATION_MEMBERS
             = "delete from member where organizationID = ?";
-
     private static final String SQL_UPDATE_ORGANIZATION
             = "update organization set organizationName = ?, organizationDescription = ?, locationID = ? "
             + "where organizationID = ?";

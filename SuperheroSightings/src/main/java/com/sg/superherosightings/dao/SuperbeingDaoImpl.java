@@ -54,6 +54,9 @@ public class SuperbeingDaoImpl implements SuperbeingDao {
             + "(sighting.locationID = location.locationID) "
             + "where location.locationID = ?";
 
+    private static final String SQL_DELETE_SUPERBEING_SIGHTING
+            = "delete from sighting where superbeingID = ?";
+
 //    private static final String SQL_SELECT_SUPERBEING_BY_LOCATION = "select location.LocationName, sighting.sightingDate, superbeing.SuperbeingAlias, "
 //            + "concat (superbeing.superbeingFirstName, ' ', superbeing.superbeingLastName) as Name, superbeing.SuperbeingDescription "
 //            + "from superbeing "
@@ -79,6 +82,7 @@ public class SuperbeingDaoImpl implements SuperbeingDao {
 
     @Override
     public void deleteSuperbeing(int superbeingID) {
+        jdbcTemplate.update(SQL_DELETE_SUPERBEING_SIGHTING, superbeingID);
         jdbcTemplate.update(SQL_DELETE_SUPERBEING, superbeingID);
     }
 
